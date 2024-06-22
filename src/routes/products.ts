@@ -15,6 +15,17 @@ export default async function ProductsRoutes(app: FastifyInstance) {
     routePrefix + "/create",
     (req: FastifyRequest<{ Body: ProductInterface }>, res) => {
       const { title, description, price } = req.body;
+      console.log(typeof title, typeof description, typeof price);
+      if (
+        typeof title !== "string" ||
+        typeof description !== "string" ||
+        typeof price !== "string"
+      ) {
+        return res.status(400).send({
+          status: 400,
+          message: "The type of one of the content parameters is incorrect.",
+        });
+      }
 
       const product: ProductInterface = new Product({
         title,
@@ -51,6 +62,16 @@ export default async function ProductsRoutes(app: FastifyInstance) {
     routePrefix + "/update",
     (req: FastifyRequest<{ Body: NewProductInterface }>, res) => {
       const { oldId, newTitle, newDescription, newPrice } = req.body;
+      if (
+        typeof newTitle !== "string" &&
+        typeof newDescription !== "string" &&
+        typeof newPrice !== "string"
+      ) {
+        return res.status(400).send({
+          status: 400,
+          message: "The type of one of the content parameters is incorrect.",
+        });
+      }
       const newProduct: ProductInterface = {
         id: oldId,
         title: newTitle,
