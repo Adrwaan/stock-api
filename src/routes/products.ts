@@ -1,60 +1,10 @@
 import { FastifyInstance, FastifyRequest } from "fastify";
-import { v4 as uuid } from "uuid";
-
-interface Product {
-  id: string;
-  title: string;
-  description: string;
-  price: string;
-}
-
-interface NewProduct {
-  oldId: string;
-  newTitle: string;
-  newDescription: string;
-  newPrice: string;
-}
+import { NewProductInterface, ProductInterface } from "../interfaces/products";
+import { generateRandomProducts, Product } from "../lib/utils";
 
 const routePrefix = "/products";
 
-let products: Product[] = [
-  {
-    id: uuid(),
-    title: "iPhone 15",
-    description: "New iPhone by Apple Inc.",
-    price: "10000",
-  },
-  {
-    id: uuid(),
-    title: "iPhone 14",
-    description: "Old iPhone by Apple Inc.",
-    price: "9000",
-  },
-  {
-    id: uuid(),
-    title: "iPhone 13",
-    description: "Old iPhone by Apple Inc.",
-    price: "8000",
-  },
-  {
-    id: uuid(),
-    title: "iPhone 12",
-    description: "Old iPhone by Apple Inc.",
-    price: "7000",
-  },
-  {
-    id: uuid(),
-    title: "iPhone 11",
-    description: "Old iPhone by Apple Inc.",
-    price: "6000",
-  },
-  {
-    id: uuid(),
-    title: "iPhone 10",
-    description: "Old iPhone by Apple Inc.",
-    price: "5000",
-  },
-];
+let products: ProductInterface[] = generateRandomProducts(15);
 
 export default async function ProductsRoutes(app: FastifyInstance) {
   app.get(routePrefix, (_, res) => {
@@ -63,15 +13,14 @@ export default async function ProductsRoutes(app: FastifyInstance) {
 
   app.post(
     routePrefix + "/create",
-    (req: FastifyRequest<{ Body: Product }>, res) => {
+    (req: FastifyRequest<{ Body: ProductInterface }>, res) => {
       const { title, description, price } = req.body;
 
-      const product: Product = {
-        id: uuid(),
+      const product: ProductInterface = new Product({
         title,
         description,
         price,
-      };
+      });
 
       products.push(product);
 
@@ -100,9 +49,9 @@ export default async function ProductsRoutes(app: FastifyInstance) {
 
   app.post(
     routePrefix + "/update",
-    (req: FastifyRequest<{ Body: NewProduct }>, res) => {
+    (req: FastifyRequest<{ Body: NewProductInterface }>, res) => {
       const { oldId, newTitle, newDescription, newPrice } = req.body;
-      const newProduct: Product = {
+      const newProduct: ProductInterface = {
         id: oldId,
         title: newTitle,
         description: newDescription,
