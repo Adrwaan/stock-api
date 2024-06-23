@@ -1,7 +1,7 @@
 # Stock REST API
 Uma API simples de gerenciamento de produtos criada em Typescript.
 
-## Stack:
+## 💻 Stack:
 A stack do projeto é:
 * NodeJS como interpretador JavaScript.
 * TypeScript como superset JavaScript.
@@ -10,12 +10,12 @@ A stack do projeto é:
 * UUID como uma biblioteca para auxiliar na criação de ID's aleatórios.
 * REST Client como extensão no editor de códigos Visual Studio Code servindo como cliente HTTP.
 
-## Pré-requisitos:
+## 🛑 Pré-requisitos:
 Instale os pré-requisitos para executar a API corretamente em seu sistema.
  * NodeJS => ```v20.11.1```
  * PNPM => ```v9.x```
 
-## Clone o repositório e instale as dependências:
+## 📂 Clone o repositório e instale as dependências:
 Para executar a API em seu sistema, clone o repositório, instale as dependências e execute o projeto como descrito abaixo.
 ```shell
 git clone https://github.com/Adrwaan/stock-api.git stock-api
@@ -26,7 +26,7 @@ pnpm run build
 pnpm run start
 ```
 
-## API endpoints:
+## 🔚 API endpoints:
 <table>
   <tr>
     <td>API Routes</td>
@@ -57,7 +57,7 @@ pnpm run start
 
 O campo de *Body Content* mostra o que deve ser colocado no corpo da requisição HTTP para que ela ocorra corretamente e cada campo está com seu tipo JavaScript logo à frente.
 
-## Exemplos das requisições HTTP da API:
+## 🚩 Exemplos das requisições HTTP da API:
 Se preferir ver no arquivo HTTP ([requests.http](https://github.com/Adrwaan/stock-api/requests.http)) e fazer as requisições por si, o arquivo é [este](https://github.com/Adrwaan/stock-api/requests.http).
 #### Rota de obtenção de produtos:
 ```http
@@ -183,7 +183,7 @@ Connection: close
 }
 ```
 
-### Licença: <a href="github.com/Adrwaan/stock-api/LICENSE">MIT</a>
+### 📃 Licença: <a href="github.com/Adrwaan/stock-api/LICENSE">MIT</a>
 
 ## Tecnologias utilizadas no projeto:
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
