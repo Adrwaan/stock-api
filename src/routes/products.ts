@@ -63,8 +63,9 @@ export default async function ProductsRoutes(app: FastifyInstance) {
     (req: FastifyRequest<{ Body: NewProductInterface }>, res) => {
       const { oldId, newTitle, newDescription, newPrice } = req.body;
       if (
-        typeof newTitle !== "string" &&
-        typeof newDescription !== "string" &&
+        typeof oldId !== "string" ||
+        typeof newTitle !== "string" ||
+        typeof newDescription !== "string" ||
         typeof newPrice !== "string"
       ) {
         return res.status(400).send({
