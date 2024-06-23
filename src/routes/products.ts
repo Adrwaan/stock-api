@@ -15,7 +15,6 @@ export default async function ProductsRoutes(app: FastifyInstance) {
     routePrefix + "/create",
     (req: FastifyRequest<{ Body: ProductInterface }>, res) => {
       const { title, description, price } = req.body;
-      console.log(typeof title, typeof description, typeof price);
       if (
         typeof title !== "string" ||
         typeof description !== "string" ||
