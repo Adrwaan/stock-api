@@ -42,15 +42,15 @@ export default async function ProductsRoutes(app: FastifyInstance) {
   );
 
   app.delete(
-    routePrefix + "/delete/:id",
-    (req: FastifyRequest<{ Params: { id: string } }>, res) => {
-      const { id } = req.params;
+    routePrefix + "/delete",
+    (req: FastifyRequest<{ Body: { id: string } }>, res) => {
+      const { id } = req.body;
       const productIndex = products.findIndex((product) => product.id === id);
 
       if (productIndex === -1)
         return res
           .status(404)
-          .send({ status: 404, message: "Product was not deleted." });
+          .send({ status: 404, message: "Product was not found." });
       else {
         products.splice(productIndex, 1);
         return res.status(204).send();
