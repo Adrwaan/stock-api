@@ -1,4 +1,4 @@
-# Stock REST API
+# 🗃️ Stock REST API
 Uma API simples de gerenciamento de produtos criada em Typescript.
 
 ## 💻 Stack:
