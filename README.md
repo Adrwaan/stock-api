@@ -183,7 +183,7 @@ Connection: close
 }
 ```
 
-### 📃 Licença: <a href="github.com/Adrwaan/stock-api/LICENSE">MIT</a>
+### 📃 Licença: <a href="https://github.com/Adrwaan/stock-api/blob/main/LICENSE">MIT</a>
 
 ## Tecnologias utilizadas no projeto:
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
