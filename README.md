@@ -3,9 +3,9 @@ Uma API simples de gerenciamento de produtos criada em Typescript.
 
 ## Stack:
 A stack do projeto é:
-* NodeJS como interprtador JavaScript.
+* NodeJS como interpretador JavaScript.
 * TypeScript como superset JavaScript.
-* Fastify como framework HTTP para requesições e respostas via protocolo HTTP.
+* Fastify como framework HTTP para requisições e respostas via protocolo HTTP.
 * Nodemon + TS-Node para rodar o projeto em modo escuta auxiliando o desenvolvimento.
 * UUID como uma biblioteca para auxiliar na criação de ID's aleatórios.
 * REST Client como extensão no editor de códigos Visual Studio Code servindo como cliente HTTP.
@@ -58,7 +58,7 @@ pnpm run start
 O campo de *Body Content* mostra o que deve ser colocado no corpo da requisição HTTP para que ela ocorra corretamente e cada campo está com seu tipo JavaScript logo à frente.
 
 ## Exemplos das requisições HTTP da API:
-Se preferir ver no arquivos e fazer os teste por si, o arquivo é [este](https://github.com/Adrwaan/stock-api/requests.http).
+Se preferir ver no arquivo HTTP ([requests.http](https://github.com/Adrwaan/stock-api/requests.http)) e fazer as requisições por si, o arquivo é [este](https://github.com/Adrwaan/stock-api/requests.http).
 #### Rota de obtenção de produtos:
 ```http
 GET http://localhost:3333/products HTTP/1.1
