@@ -1,0 +1,28 @@
+GET http://localhost:3333/products HTTP/1.1
+Content-Type: application/json
+###
+POST http://localhost:3333/products/create
+Content-Type: application/json
+
+{
+  "title": "Test",
+  "description": "A Test product.",
+  "price": "110.0"
+}
+###
+DELETE http://localhost:3333/products/delete HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": ""
+}
+###
+POST http://localhost:3333/products/update
+Content-Type: application/json
+
+{
+  "oldId": "",
+  "newTitle": "New name",
+  "newDescription": "A new Test product description.",
+  "newPrice": "1100.0"
+}
