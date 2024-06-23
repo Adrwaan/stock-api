@@ -9,6 +9,6 @@ const app = fastify({
   },
 });
 
-[ProductsRoutes].map((route) => app.register(route));
+app.register(ProductsRoutes);
 
 app.listen({ port: 3333 });
