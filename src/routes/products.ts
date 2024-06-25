@@ -2,7 +2,7 @@ import { FastifyInstance, FastifyRequest } from "fastify";
 import { NewProductInterface, ProductInterface } from "../interfaces/products";
 import { generateRandomProducts, Product } from "../lib/utils";
 
-const routePrefix = "/products";
+const routePrefix = "/products/";
 
 let products: ProductInterface[] = generateRandomProducts(15);
 
@@ -12,7 +12,7 @@ export default async function ProductsRoutes(app: FastifyInstance) {
   });
 
   app.post(
-    routePrefix + "/create",
+    routePrefix + "create/",
     (req: FastifyRequest<{ Body: ProductInterface }>, res) => {
       const { title, description, price } = req.body;
       if (
@@ -41,7 +41,7 @@ export default async function ProductsRoutes(app: FastifyInstance) {
   );
 
   app.delete(
-    routePrefix + "/delete",
+    routePrefix + "delete/",
     (req: FastifyRequest<{ Body: { id: string } }>, res) => {
       const { id } = req.body;
       const productIndex = products.findIndex((product) => product.id === id);
@@ -58,7 +58,7 @@ export default async function ProductsRoutes(app: FastifyInstance) {
   );
 
   app.post(
-    routePrefix + "/update",
+    routePrefix + "update/",
     (req: FastifyRequest<{ Body: NewProductInterface }>, res) => {
       const { oldId, newTitle, newDescription, newPrice } = req.body;
       if (
