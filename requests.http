@@ -1,7 +1,7 @@
-GET http://localhost:3333/products HTTP/1.1
+GET http://localhost:3333/products/ HTTP/1.1
 Content-Type: application/json
 ###
-POST http://localhost:3333/products/create
+POST http://localhost:3333/products/create/
 Content-Type: application/json
 
 {
@@ -10,14 +10,14 @@ Content-Type: application/json
   "price": "110.0"
 }
 ###
-DELETE http://localhost:3333/products/delete HTTP/1.1
+DELETE http://localhost:3333/products/delete/ HTTP/1.1
 Content-Type: application/json
 
 {
   "id": ""
 }
 ###
-POST http://localhost:3333/products/update
+POST http://localhost:3333/products/update/
 Content-Type: application/json
 
 {

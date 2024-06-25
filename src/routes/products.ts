@@ -8,12 +8,14 @@ let products: ProductInterface[] = generateRandomProducts(15);
 
 export default async function ProductsRoutes(app: FastifyInstance) {
   app.get(routePrefix, (_, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
     return res.status(200).send(products);
   });
 
   app.post(
     routePrefix + "create/",
     (req: FastifyRequest<{ Body: ProductInterface }>, res) => {
+      res.header("Access-Control-Allow-Origin", "*");
       const { title, description, price } = req.body;
       if (
         typeof title !== "string" ||
@@ -43,6 +45,7 @@ export default async function ProductsRoutes(app: FastifyInstance) {
   app.delete(
     routePrefix + "delete/",
     (req: FastifyRequest<{ Body: { id: string } }>, res) => {
+      res.header("Access-Control-Allow-Origin", "*");
       const { id } = req.body;
       const productIndex = products.findIndex((product) => product.id === id);
 
@@ -60,6 +63,7 @@ export default async function ProductsRoutes(app: FastifyInstance) {
   app.post(
     routePrefix + "update/",
     (req: FastifyRequest<{ Body: NewProductInterface }>, res) => {
+      res.header("Access-Control-Allow-Origin", "*");
       const { oldId, newTitle, newDescription, newPrice } = req.body;
       if (
         typeof oldId !== "string" ||
