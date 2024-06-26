@@ -44,9 +44,9 @@ export default async function ProductsRoutes(app: FastifyInstance) {
 
   app.delete(
     routePrefix + "delete/",
-    (req: FastifyRequest<{ Body: { id: string } }>, res) => {
+    (req: FastifyRequest<{ Params: { id: string } }>, res) => {
       res.header("Access-Control-Allow-Origin", "*");
-      const { id } = req.body;
+      const { id } = req.params;
       const productIndex = products.findIndex((product) => product.id === id);
 
       if (productIndex === -1)
